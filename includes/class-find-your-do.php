@@ -102,7 +102,8 @@ class Find_Your_Do
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_filter( 'the_title', $plugin_public, 'remove_the_title', 10, 2 );
-		$this->loader->add_filter( 'the_content', $plugin_public, 'add_js_templates', 10, 2 );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'add_results_divs', 10, 1 );
+        $this->loader->add_filter( 'the_content', $plugin_public, 'add_js_templates', 10, 1 );
 
 	}
 

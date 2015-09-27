@@ -2806,7 +2806,7 @@ var PhysicianListItemView = Backbone.View.extend({
     template: _.template(
             '<h6 class="fyd-results__kicker"><%= specialty %></h6>' +
             '<h3 class="fyd-results__name">' +
-                '<a href="results.html#physicians/<%= id %>"><%= full_name %></a>' +
+                '<a href="find-your-do-results#physicians/<%= id %>"><%= full_name %></a>' +
                 '<% if (aoa_cert) { %><span class="fyd-results__imagecontainer"><img src="img/logo-aoa-board-certified-28.png" /></span><% } %>' +
             '</h3>' +
             '<div class="fyd-results__body"><p data-lat=<%= lat %> data-lon=<%= lon %>>' +
@@ -2845,6 +2845,7 @@ var ResultsMetaView = Backbone.View.extend({
     },
 
     initialize: function (options) {
+debugger;
         if (options.el !== undefined) {
             this.el = $(options.el)
         }
@@ -2991,7 +2992,7 @@ var SpecialtyView = Backbone.View.extend({
             // TODO Fix the magic value: "results.html"
             var origin = window.location.origin;
             window.location.href = window.location.origin + 
-                '/results.html#physicians/' + suggestion.id;        
+                '/find-your-do-results#physicians/' + suggestion.id;        
         }
     },
 

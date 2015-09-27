@@ -11,6 +11,7 @@ var ResultsMetaView = Backbone.View.extend({
     },
 
     initialize: function (options) {
+debugger;
         if (options.el !== undefined) {
             this.el = $(options.el)
         }

@@ -54,7 +54,11 @@ class Find_Your_Do_Activator {
     private static function fyd_create_results_page()
     {
         $date = get_the_date('Y-m-d H:i:s');
+        //$post_content  = '<div id="fydResultsMeta"></div>';
+        //$post_content .= '<div id="fydResults"></div>';
+
         $args = array(
+            //'post_content' => $post_content,
             'post_content' => '',
             'post_title' => 'Find Your DO Results',
             'post_status' => 'publish',

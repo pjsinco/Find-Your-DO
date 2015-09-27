@@ -37,6 +37,19 @@ class Find_Your_Do_Public
         return $title;
     }
 
+    public function add_results_divs($content)
+    {
+        global $post;
+
+        if (is_page() && $post->ID == $this->results_post_id) {
+            $post_content  = '<div id="fydResultsMeta"></div>';
+            $post_content .= '<div id="fydResults"></div>';
+            $content .= $post_content;
+        }
+        
+        return $content;
+    }
+
     /**
      * Append the underscores templates for displaying results.
      *
@@ -51,7 +64,7 @@ class Find_Your_Do_Public
                 plugin_dir_path(__FILE__) . 
                     'partials/find-your-do-public-display.php'
             );
-            return ob_get_clean();
+            return $content . ob_get_clean();
         }
 
         return $content;

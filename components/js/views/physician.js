@@ -13,7 +13,7 @@ var PhysicianListItemView = Backbone.View.extend({
     template: _.template(
             '<h6 class="fyd-results__kicker"><%= specialty %></h6>' +
             '<h3 class="fyd-results__name">' +
-                '<a href="results.html#physicians/<%= id %>"><%= full_name %></a>' +
+                '<a href="find-your-do-results#physicians/<%= id %>"><%= full_name %></a>' +
                 '<% if (aoa_cert) { %><span class="fyd-results__imagecontainer"><img src="img/logo-aoa-board-certified-28.png" /></span><% } %>' +
             '</h3>' +
             '<div class="fyd-results__body"><p data-lat=<%= lat %> data-lon=<%= lon %>>' +

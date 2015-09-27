@@ -44,7 +44,7 @@ var SpecialtyView = Backbone.View.extend({
             // TODO Fix the magic value: "results.html"
             var origin = window.location.origin;
             window.location.href = window.location.origin + 
-                '/results.html#physicians/' + suggestion.id;        
+                '/find-your-do-results#physicians/' + suggestion.id;        
         }
     },
 
