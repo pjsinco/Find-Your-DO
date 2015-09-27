@@ -34,7 +34,7 @@ class Find_Your_Do_Deactivator {
         $post_id = self::fyd_get_post_id();
 
         if ($post_id) {
-            wp_delete_post($post_id);
+            wp_delete_post($post_id, true);
             self::fyd_delete_option();
         }
 	}

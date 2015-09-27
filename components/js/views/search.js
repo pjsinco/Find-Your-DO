@@ -42,20 +42,18 @@ var SearchFormView = Backbone.View.extend({
 
     formSubmit: function(evt) {
 
-        // ?city=Chicago
-        // &state=IL
-        // &lat=41.881027
-        // &lon=-87.62473
-        // &s_code=C
-        // &specialty=Cardiology
-        // &location=Chicago%2C+IL
-
         evt.preventDefault();
         console.log('form submitted: ' + (this.isValid() ? 'valid' : 'invalid' ));
         if (this.isValid()) {
             var queryString = this.$el.serialize();    
-            window.location = 'http://localhost:3333/results.html?' + 
+            var href = window.location.href;
+
+            window.location = [
+                href,
+                'find-your-do-results',
+                '?',
                 queryString
+            ].join('')
         } else {
             this.indicateInvalid();
         }
