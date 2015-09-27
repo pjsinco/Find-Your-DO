@@ -7,7 +7,7 @@ var PhysicianList = Backbone.Collection.extend({
     model: Physician,
     
     //url: 'http://lookup.dev/api/v1/physicians/search',
-    url: 'http://lookupapi.dev/api/v1/physicians/search',
+    url: 'http://lookup.findyourdo.org/api/v1/physicians/search',
     
     parse: function(response) {
         return response.data;
@@ -30,7 +30,7 @@ var _ = require('underscore');
 
 var Location = Backbone.Model.extend({
 
-    urlRoot: 'http://lookupapi.dev/api/v1/locations',
+    urlRoot: 'http://lookup.findyourdo.org/api/v1/locations',
 
     defaults: {
         city: undefined,
@@ -80,10 +80,10 @@ var Backbone = require('backbone');
 var Physician = Backbone.Model.extend({
 
     // when we fetch outside a collection
-    urlRoot: 'http://lookupapi.dev/api/v1/physicians',
+    urlRoot: 'http://lookup.findyourdo.org/api/v1/physicians',
 
     // when we fetch inside a collection
-    //url: 'http://lookupapi.dev/api/v1/physicians/search',
+    //url: 'http://lookup.findyourdo.org/api/v1/physicians/search',
 
     initialize: function () {
 
@@ -207,7 +207,6 @@ var SearchForm = Backbone.Model.extend({
         }
 
         this.router = options.router;
-
         this.searchFormView = new SearchFormView({ 
             model: this,
             el: '#findYourDo'
@@ -2222,7 +2221,7 @@ console.log('home');
 
     spoofGeoLocate: function () {
         var modelOptions = {
-            url: 'http://lookupapi.dev/api/v1/locations/random', 
+            url: 'http://lookup.findyourdo.org/api/v1/locations/random', 
         };
         var randomLocation = new Location({}, modelOptions);
         var self = this;
@@ -2628,7 +2627,7 @@ var LocationForm = Backbone.View.extend({
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             limit: 10,
             remote: {
-                url: 'http://lookupapi.dev/api/v1/locations/search',
+                url: 'http://lookup.findyourdo.org/api/v1/locations/search',
                 replace: function(url, urlEncodedQuery) {
                     return url + '?q=' + urlEncodedQuery;
                 },
@@ -2955,7 +2954,7 @@ var Backbone = require('backbone'),
 
 var SpecialtyView = Backbone.View.extend({
 
-    el: $('#specialty'),
+    el: '#specialty',
 
     events: {
         'typeahead:closed': 'closed',
@@ -2963,7 +2962,6 @@ var SpecialtyView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        
         if (options.searchLocation) {
             this.searchLocation = options.searchLocation;
         }
@@ -3023,7 +3021,7 @@ var SpecialtyView = Backbone.View.extend({
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             limit: 25,
             prefetch: {
-                url: 'http://lookupapi.dev/api/v1/specialties',
+                url: 'http://lookup.findyourdo.org/api/v1/specialties',
                 filter: function(obj) {
                     //console.log(obj['data']);
                     return _.map(obj['data'], function(specialty) {
@@ -3040,7 +3038,7 @@ var SpecialtyView = Backbone.View.extend({
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             //limit: 7,
             remote: {
-                url: 'http://lookupapi.dev/api/v1/physicians/search',
+                url: 'http://lookup.findyourdo.org/api/v1/physicians/search',
                 replace: function(url, uriEncodedQuery) {
                     // Grab the location from the hidden form fields
                     var loc = {
@@ -16152,6 +16150,7 @@ var ResultsRouter = require('routers/results-router');
 $(function () {
 
     var whereWeAre = window.location.pathname;
+console.log('whereWeAre: ' + whereWeAre);
 
     if (whereWeAre.indexOf('results') > 0) {
         var app = new ResultsRouter({

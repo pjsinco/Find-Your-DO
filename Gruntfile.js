@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-compass");
+  //grunt.loadNpmTasks("grunt-contrib-compass");
   grunt.loadNpmTasks("grunt-autoprefixer");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-notify");
@@ -10,19 +10,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     notify: {
-        sass: {
-            options: {
-                title: 'Sass',
-                message: 'Sass task complete'
-            } 
-        },
-
-        jade: {
-            options: {
-                title: 'Jade',
-                message: 'Jade compiled'
-            }
-        },
+//        sass: {
+//            options: {
+//                title: 'Sass',
+//                message: 'Sass task complete'
+//            } 
+//        },
 
         browserify: {
             options: {
@@ -53,26 +46,26 @@ module.exports = function(grunt) {
         },
     },
 
-    compass: {
-      dev: {
-        options: {
-          config: 'config.rb'
-        }
-      }
-    },
+//    compass: {
+//      dev: {
+//        options: {
+//          config: 'config.rb'
+//        }
+//      }
+//    },
 
     watch: {
       options: {
         livereload: true
       },
       
-      sass: {
-        files: ['components/sass/**/*.scss'],
-        tasks: ['compass:dev', 'notify:sass'] 
-      },
+//      sass: {
+//        files: ['./components/sass/**/*.scss'],
+//        tasks: ['compass:dev', 'notify:sass'] 
+//      },
 
       js: {
-        files: ['components/js/**/*.js'],
+        files: ['./components/js/**/*.js'],
         tasks: ['browserify:dev', 'notify:browserify']
       }
 
@@ -80,7 +73,7 @@ module.exports = function(grunt) {
     } // watch
   }); // initConfig
   
-  grunt.registerTask('compile-sass', ['compass:dev', 'notify:sass']);
+  //grunt.registerTask('compile-sass', ['compass:dev', 'notify:sass']);
   grunt.registerTask('compile-js', ['browserify:dev', 'notify:browserify']);
   grunt.registerTask('default', ['watch']);
 
