@@ -4,7 +4,7 @@
  * Plugin Name:       Find Your DO
  * Plugin URI:        github
  * Description:       Find Your DO app
- * Version:           0.0.1
+ * Version:           1.0.0
  * Author:            pjs
  * Author URI:        https://github.com/pjsinco
  * License:           GPL-2.0+
