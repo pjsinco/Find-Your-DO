@@ -30,7 +30,7 @@ class Find_Your_Do_Public
     {
         global $post;
 
-        if ($post->ID == $this->results_post_id) {
+        if (is_page() && $post->ID == $this->results_post_id) {
             $title = '';
         }
 
