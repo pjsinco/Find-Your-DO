@@ -26,7 +26,7 @@ class Find_Your_Do_Public
      * Remove the title from the results page.
      *
      */
-    public function filter_the_title($title)
+    public function remove_the_title($title)
     {
         global $post;
 
@@ -35,6 +35,26 @@ class Find_Your_Do_Public
         }
 
         return $title;
+    }
+
+    /**
+     * Append the underscores templates for displaying results.
+     *
+     */
+    public function add_js_templates($content)
+    {
+        global $post;
+
+        if (is_page() && $post->ID == $this->results_post_id) {
+            ob_start();
+            require_once(
+                plugin_dir_path(__FILE__) . 
+                    'partials/find-your-do-public-display.php'
+            );
+            return ob_get_clean();
+        }
+
+        return $content;
     }
 
 	public function enqueue_styles() 
