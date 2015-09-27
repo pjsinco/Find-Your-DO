@@ -1,5 +1,4 @@
 require 'breakpoint'
-require 'compass-normalize'
 http_path = '/'
 css_dir = 'public/css'
 fonts_dir = 'public/fonts'
