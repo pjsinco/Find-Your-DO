@@ -52,11 +52,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-find-your-do.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
  */
 function run_find_your_do() {
 
-	$plugin = new Find_Your_Do();
+    $results_post_id = get_option('fyd_post_id');
+	$plugin = new Find_Your_Do($results_post_id);
 	$plugin->run();
 
 }

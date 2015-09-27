@@ -12,28 +12,33 @@ class Find_Your_Do_Public
 
 	private $plugin_name;
 	private $version;
+    private $results_post_id;
 
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $results_post_id ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+        $this->results_post_id = $results_post_id;
 
 	}
 
-	public function enqueue_styles() {
+    /**
+     * Remove the title from the results page.
+     *
+     */
+    public function filter_the_title($title)
+    {
+        global $post;
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Find_Your_Do_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Find_Your_Do_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+        if ($post->ID == $this->results_post_id) {
+            $title = '';
+        }
 
+        return $title;
+    }
+
+	public function enqueue_styles() 
+    {
 		wp_enqueue_style( 
             $this->plugin_name, 
             plugin_dir_url( __FILE__ ) . 'css/find-your-do-public.css', 
@@ -41,30 +46,17 @@ class Find_Your_Do_Public
             $this->version, 
             'all'
         );
-
 	}
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Find_Your_Do_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Find_Your_Do_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/find-your-do-public.js', array( 'jquery' ), $this->version, false );
-
+	public function enqueue_scripts() 
+    {
+		wp_enqueue_script( 
+            $this->plugin_name, 
+            plugin_dir_url( __FILE__ ) . 'js/find-your-do-public.js', 
+            array( 'jquery' ), 
+            $this->version, 
+            false 
+        );
 	}
 
 }

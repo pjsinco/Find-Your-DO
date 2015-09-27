@@ -6,10 +6,12 @@ class Find_Your_Do
 	protected $loader;
 	protected $plugin_name;
 	protected $version;
+    protected $results_post_id;
 
-	public function __construct() 
+	public function __construct($results_post_id) 
     {
 
+        $this->results_post_id = $results_post_id;
 		$this->plugin_name = 'find-your-do';
 		$this->version = '1.0.0';
 
@@ -67,16 +69,6 @@ class Find_Your_Do
 
 	}
 
-//	private function set_locale() 
-//    {
-//
-//		$plugin_i18n = new Find_Your_Do_i18n();
-//		$plugin_i18n->set_domain( $this->get_plugin_name() );
-//
-//		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-//
-//	}
-
 	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
@@ -101,11 +93,15 @@ class Find_Your_Do
 	private function define_public_hooks() 
     {
 
-		$plugin_public = 
-            new Find_Your_Do_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Find_Your_Do_Public( 
+            $this->get_plugin_name(), 
+            $this->get_version(), 
+            $this->results_post_id 
+        );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_filter( 'the_title', $plugin_public, 'filter_the_title', 10, 2 );
 
 	}
 
