@@ -81,6 +81,7 @@ var ResultsRouter = require('routers/results-router');
 $(function () {
 
     var whereWeAre = window.location.pathname;
+console.log('whereWeAre: ' + whereWeAre);
 
     if (whereWeAre.indexOf('results') > 0) {
         var app = new ResultsRouter({

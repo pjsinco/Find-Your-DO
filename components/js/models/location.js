@@ -3,7 +3,7 @@ var _ = require('underscore');
 
 var Location = Backbone.Model.extend({
 
-    urlRoot: 'http://lookupapi.dev/api/v1/locations',
+    urlRoot: 'http://lookup.findyourdo.org/api/v1/locations',
 
     defaults: {
         city: undefined,

@@ -5,7 +5,7 @@ var Backbone = require('backbone'),
 
 var SpecialtyView = Backbone.View.extend({
 
-    el: $('#specialty'),
+    el: '#specialty',
 
     events: {
         'typeahead:closed': 'closed',
@@ -13,7 +13,6 @@ var SpecialtyView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        
         if (options.searchLocation) {
             this.searchLocation = options.searchLocation;
         }
@@ -73,7 +72,7 @@ var SpecialtyView = Backbone.View.extend({
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             limit: 25,
             prefetch: {
-                url: 'http://lookupapi.dev/api/v1/specialties',
+                url: 'http://lookup.findyourdo.org/api/v1/specialties',
                 filter: function(obj) {
                     //console.log(obj['data']);
                     return _.map(obj['data'], function(specialty) {
@@ -90,7 +89,7 @@ var SpecialtyView = Backbone.View.extend({
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             //limit: 7,
             remote: {
-                url: 'http://lookupapi.dev/api/v1/physicians/search',
+                url: 'http://lookup.findyourdo.org/api/v1/physicians/search',
                 replace: function(url, uriEncodedQuery) {
                     // Grab the location from the hidden form fields
                     var loc = {

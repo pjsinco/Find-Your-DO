@@ -3,10 +3,10 @@ var Backbone = require('backbone');
 var Physician = Backbone.Model.extend({
 
     // when we fetch outside a collection
-    urlRoot: 'http://lookupapi.dev/api/v1/physicians',
+    urlRoot: 'http://lookup.findyourdo.org/api/v1/physicians',
 
     // when we fetch inside a collection
-    //url: 'http://lookupapi.dev/api/v1/physicians/search',
+    //url: 'http://lookup.findyourdo.org/api/v1/physicians/search',
 
     initialize: function () {
 

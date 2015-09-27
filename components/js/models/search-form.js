@@ -28,7 +28,6 @@ var SearchForm = Backbone.Model.extend({
         }
 
         this.router = options.router;
-
         this.searchFormView = new SearchFormView({ 
             model: this,
             el: '#findYourDo'
