@@ -5,6 +5,15 @@ class Find_Your_Do_Activator
 
     public static function activate() 
     {
+        
+        // Delete the page, entry if they exist
+        $results_post_id = get_option('fyd_post_id');
+        if ($results_post_id) {
+            wp_delete_post($post_id, true);
+            self::fyd_delete_option();
+        }
+
+        // Create a new page to hold results
         $post_id = self::fyd_create_results_page();
         self::fyd_update_options($post_id);
     }
@@ -46,4 +55,12 @@ class Find_Your_Do_Activator
         return $post_id;
     }
 
+    /**
+     * Clear our entry from the DB.
+     *
+     */
+    private static function fyd_delete_option()
+    {
+        delete_option('fyd_post_id');
+    }
 }
