@@ -1,12 +1,10 @@
-.fyd {
-}
-
 .fyd-results {
     &__name {
         margin-top: 0;
         margin-bottom: .3571428571em;
         /*font-size: 1.142857143em;*/
         font-weight: 600;
+        font-family: $primaryfont;
         text-transform: uppercase;
         color: $primarycolor;
     }
