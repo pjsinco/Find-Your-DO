@@ -10,17 +10,18 @@
 class Find_Your_Do_Public 
 {
 
-	private $plugin_name;
-	private $version;
+    private $plugin_name;
+    private $version;
     private $results_post_id;
 
-	public function __construct( $plugin_name, $version, $results_post_id ) {
+    public function __construct( $plugin_name, $version, $results_post_id ) 
+    {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+        $this->plugin_name = $plugin_name;
+        $this->version = $version;
         $this->results_post_id = $results_post_id;
 
-	}
+    }
 
     /**
      * Remove the title from the results page.
@@ -70,26 +71,26 @@ class Find_Your_Do_Public
         return $content;
     }
 
-	public function enqueue_styles() 
+    public function enqueue_styles() 
     {
-		wp_enqueue_style( 
+        wp_enqueue_style( 
             $this->plugin_name, 
             plugin_dir_url( __FILE__ ) . 'css/find-your-do-public.css', 
             array(), 
             $this->version, 
             'all'
         );
-	}
+    }
 
-	public function enqueue_scripts() 
+    public function enqueue_scripts() 
     {
-		wp_enqueue_script( 
+        wp_enqueue_script( 
             $this->plugin_name, 
             plugin_dir_url( __FILE__ ) . 'js/find-your-do-public.js', 
             array( 'jquery' ), 
             $this->version, 
             false 
         );
-	}
+    }
 
 }

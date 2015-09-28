@@ -1,39 +1,13 @@
 <?php
 
-/**
- * Fired during plugin activation
- *
- * @link       https://github.com/pjsinco
- * @since      1.0.0
- *
- * @package    Find_Your_Do
- * @subpackage Find_Your_Do/includes
- */
+class Find_Your_Do_Activator 
+{
 
-/**
- * Fired during plugin activation.
- *
- * This class defines all code necessary to run during the plugin's activation.
- *
- * @since      1.0.0
- * @package    Find_Your_Do
- * @subpackage Find_Your_Do/includes
- * @author     pjs <psinco@osteopathic.org>
- */
-class Find_Your_Do_Activator {
-
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate() 
+    public static function activate() 
     {
         $post_id = self::fyd_create_results_page();
         self::fyd_update_options($post_id);
-	}
+    }
 
     /**
      * Store the post id of the page used to display the search results
@@ -54,11 +28,8 @@ class Find_Your_Do_Activator {
     private static function fyd_create_results_page()
     {
         $date = get_the_date('Y-m-d H:i:s');
-        //$post_content  = '<div id="fydResultsMeta"></div>';
-        //$post_content .= '<div id="fydResults"></div>';
 
         $args = array(
-            //'post_content' => $post_content,
             'post_content' => '',
             'post_title' => 'Find Your DO Results',
             'post_status' => 'publish',
