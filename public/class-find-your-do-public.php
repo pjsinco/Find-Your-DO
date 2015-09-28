@@ -57,7 +57,7 @@ class Find_Your_Do_Public
      * Append the underscores templates for displaying results.
      *
      */
-    public function add_js_templates($content)
+    public function add_js_templates()
     {
         global $post;
 
@@ -67,10 +67,8 @@ class Find_Your_Do_Public
                 plugin_dir_path(__FILE__) . 
                     'partials/find-your-do-public-display.php'
             );
-            return $content . ob_get_clean();
+            echo ob_get_clean();
         }
-
-        return $content;
     }
 
     public function enqueue_styles() 
