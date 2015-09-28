@@ -29,11 +29,6 @@ class Find_Your_Do
      * - Find_Your_Do_Admin. Defines all hooks for the admin area.
      * - Find_Your_Do_Public. Defines all hooks for the public side of the site.
      *
-     * Create an instance of the loader which will be used to register the hooks
-     * with WordPress.
-     *
-     * @since    1.0.0
-     * @access   private
      */
     private function load_dependencies() 
     {
