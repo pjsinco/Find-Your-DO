@@ -91,6 +91,14 @@ class Find_Your_Do_Public
             $this->version, 
             false 
         );
+
+        wp_localize_script(
+            $this->plugin_name, 
+            'fydSettings',
+            array(
+                'imagePath' => plugin_dir_url( __FILE__ ) . 'img/', 
+            )
+        );
     }
 
 }
