@@ -356,17 +356,18 @@
       padding-left: 1.25em; }
       /* line 81, ../../components/sass/modules/_typeahead.scss */
       .tt-dataset-physicians .tt-suggestion a:hover {
-        text-decoration: none; }
-/* line 88, ../../components/sass/modules/_typeahead.scss */
+        text-decoration: none;
+        color: inherit; }
+/* line 89, ../../components/sass/modules/_typeahead.scss */
 .tt-suggestion.tt-cursor {
   /* UPDATE: newer versions use .tt-suggestion.tt-cursor */
   /*color: #fff;*/
   background-color: #fff7e6;
   /*@include transition(all, 0.2s, ease);*/ }
-/* line 95, ../../components/sass/modules/_typeahead.scss */
+/* line 96, ../../components/sass/modules/_typeahead.scss */
 .tt-suggestion a {
   color: inherit; }
-/* line 99, ../../components/sass/modules/_typeahead.scss */
+/* line 100, ../../components/sass/modules/_typeahead.scss */
 .tt-suggestion p {
   margin: 0; }
 
