@@ -94,8 +94,10 @@
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   @media (min-width: 768px) {
     /* line 46, ../../components/sass/modules/_find-your-do-results.scss */
@@ -158,6 +160,7 @@
     cursor: pointer;
     background-color: #8f8f8f;
     -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease; }
   /* line 148, ../../components/sass/modules/_find-your-do-results.scss */
   .fyd-results__tag [data-role="remove"]:after {
@@ -447,8 +450,7 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: bounce;
   animation-name: bounce;
   -webkit-transform-origin: center bottom;
-  -ms-transform-origin: center bottom;
-      transform-origin: center bottom; }
+  transform-origin: center bottom; }
 
 @-webkit-keyframes flash {
   from, 50%, to {
@@ -600,8 +602,7 @@ Copyright (c) 2015 Daniel Eden
 /* line 340, ../../components/sass/modules/_animate.scss */
 .swing {
   -webkit-transform-origin: top center;
-  -ms-transform-origin: top center;
-      transform-origin: top center;
+  transform-origin: top center;
   -webkit-animation-name: swing;
   animation-name: swing; }
 
@@ -747,8 +748,7 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: jello;
   animation-name: jello;
   -webkit-transform-origin: center;
-  -ms-transform-origin: center;
-      transform-origin: center; }
+  transform-origin: center; }
 
 @-webkit-keyframes bounceIn {
   from, 20%, 40%, 60%, 80%, to {
