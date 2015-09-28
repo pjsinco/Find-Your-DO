@@ -16,7 +16,6 @@ class Find_Your_Do
         $this->version = '1.0.0';
 
         $this->load_dependencies();
-        //$this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
 

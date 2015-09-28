@@ -31,7 +31,9 @@ class Find_Your_Do_Public
     {
         global $post;
 
-        if (is_page() && $post->ID == $this->results_post_id) {
+        // Make sure we're inside the loop so we don't filter any of the 
+        // titles we shouldn't be filtering.
+        if (is_page() && $post->ID == $this->results_post_id && in_the_loop()) {
             $title = '';
         }
 
