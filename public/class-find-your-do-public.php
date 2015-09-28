@@ -101,4 +101,27 @@ class Find_Your_Do_Public
         );
     }
 
+    public function say_yes_to_is_active_sidebar($is_active_sidebar)
+    {
+        global $post; 
+    
+        if (is_page() && $post->ID == $this->results_post_id) {
+            return true;
+        }
+        
+        return $is_active_sidebar;
+
+    }
+
+    public function add_map_block()
+    {
+        global $post;
+
+        if (is_page() && $post->ID == $this->results_post_id) {
+
+            echo '<div id="sidebar">';
+            echo 'Practicing hooking into get_sidebar()';
+            echo '</div>';
+        }
+    }
 }

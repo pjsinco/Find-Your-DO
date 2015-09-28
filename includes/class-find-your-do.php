@@ -87,12 +87,56 @@ class Find_Your_Do
             $this->results_post_id 
         );
 
-        $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-        $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-        $this->loader->add_filter( 'the_title', $plugin_public, 'remove_the_title', 10, 2 );
-        $this->loader->add_filter( 'the_content', $plugin_public, 'add_results_divs', 10, 1 );
-        $this->loader->add_filter( 'wp_footer', $plugin_public, 'add_js_templates', 10, 1 );
+        $this->loader->add_action(
+            'wp_enqueue_scripts', 
+            $plugin_public, 
+            'enqueue_styles' 
+        );
 
+        $this->loader->add_action(
+            'wp_enqueue_scripts', 
+            $plugin_public, 
+            'enqueue_scripts'
+        );
+
+        $this->loader->add_filter(
+            'the_title',
+            $plugin_public,
+            'remove_the_title',
+            10,
+            2 
+        );
+
+        $this->loader->add_filter(
+            'the_content',
+            $plugin_public,
+            'add_results_divs',
+            10,
+            1
+        );
+
+        $this->loader->add_filter(
+            'wp_footer',
+            $plugin_public,
+            'add_js_templates',
+            10,
+            1
+        );
+
+        $this->loader->add_action(
+            'get_sidebar',
+            $plugin_public,
+            'add_map_block',
+            1
+        );
+
+        $this->loader->add_filter(
+            'is_active_sidebar',
+            $plugin_public,
+            'say_yes_to_is_active_sidebar',
+            10,
+            1
+        );
     }
 
     /**
