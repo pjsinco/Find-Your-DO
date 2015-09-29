@@ -124,4 +124,16 @@ class Find_Your_Do_Public
             echo '</div>';
         }
     }
+
+    public function fyd_load_page_template($page_template)
+    {
+        global $post;
+
+        if (is_page() && $post->ID == $this->results_post_id) {
+            $page_template = plugin_dir_path(__FILE__) . 
+                'templates/page-find-your-do-results.php';
+        }
+
+        return $page_template;
+    }
 }

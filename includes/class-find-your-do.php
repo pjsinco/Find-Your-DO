@@ -54,7 +54,6 @@ class Find_Your_Do
 
         $this->loader = new Find_Your_Do_Loader();
 
-
     }
 
     /**
@@ -65,11 +64,11 @@ class Find_Your_Do
     private function define_admin_hooks() 
     {
 
-        $plugin_admin = 
-            new Find_Your_Do_Admin( $this->get_plugin_name(), $this->get_version() );
+        //$plugin_admin = 
+            //new Find_Your_Do_Admin( $this->get_plugin_name(), $this->get_version() );
 
-        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        //$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+        //$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
     }
 
@@ -99,13 +98,13 @@ class Find_Your_Do
             'enqueue_scripts'
         );
 
-        $this->loader->add_filter(
-            'the_title',
-            $plugin_public,
-            'remove_the_title',
-            10,
-            2 
-        );
+//        $this->loader->add_filter(
+//            'the_title',
+//            $plugin_public,
+//            'remove_the_title',
+//            10,
+//            2 
+//        );
 
         $this->loader->add_filter(
             'the_content',
@@ -134,6 +133,14 @@ class Find_Your_Do
             'is_active_sidebar',
             $plugin_public,
             'say_yes_to_is_active_sidebar',
+            10,
+            1
+        );
+
+        $this->loader->add_filter(
+            'page_template',
+            $plugin_public,
+            'fyd_load_page_template',
             10,
             1
         );

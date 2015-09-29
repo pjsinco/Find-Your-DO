@@ -37,6 +37,8 @@ class Find_Your_Do_Activator
     private static function fyd_create_results_page()
     {
         $date = get_the_date('Y-m-d H:i:s');
+        $page_template_path = 
+            plugins_url('/templates/page-find-your-do-results.php', __FILE__);
 
         $args = array(
             'post_content' => '',
@@ -47,10 +49,16 @@ class Find_Your_Do_Activator
             'post_date' => $date,
             'post_date_gmt' => get_gmt_from_date($date),
             'comment_status' => 'closed',
-            'page_template' => 'page.php',
+            //'page_template' => 'page.php',
+            //'page_template' => $page_template_path,
         );
     
         $post_id = wp_insert_post($args);
+
+        // Set the page template
+//        if ($post_id && !is_wp_error($post_id)) {
+//            update_post_meta($post_id, '_wp_page_template', $page_template_path);
+//        }
         
         return $post_id;
     }
