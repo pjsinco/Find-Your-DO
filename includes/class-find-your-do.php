@@ -129,13 +129,13 @@ class Find_Your_Do
             1
         );
 
-        $this->loader->add_filter(
-            'is_active_sidebar',
-            $plugin_public,
-            'say_yes_to_is_active_sidebar',
-            10,
-            1
-        );
+//        $this->loader->add_filter(
+//            'is_active_sidebar',
+//            $plugin_public,
+//            'say_yes_to_is_active_sidebar',
+//            10,
+//            1
+//        );
 
         $this->loader->add_filter(
             'page_template',
@@ -144,6 +144,7 @@ class Find_Your_Do
             10,
             1
         );
+
     }
 
     /**

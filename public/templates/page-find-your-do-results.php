@@ -41,7 +41,7 @@
 
                             <?php
                                 //RIGHT
-                                get_sidebar();
+                                get_sidebar('sidebar-fyd-results');
                             ?>
 
                         </div> <!-- .row -->

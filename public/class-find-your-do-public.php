@@ -101,28 +101,33 @@ class Find_Your_Do_Public
         );
     }
 
-    public function say_yes_to_is_active_sidebar($is_active_sidebar)
-    {
-        global $post; 
-    
-        if (is_page() && $post->ID == $this->results_post_id) {
-            return true;
-        }
-        
-        return $is_active_sidebar;
+//    public function say_yes_to_is_active_sidebar($is_active_sidebar)
+//    {
+//        global $post; 
+//    
+//        if (is_page() && $post->ID == $this->results_post_id) {
+//            return true;
+//        }
+//        
+//        return $is_active_sidebar;
+//
+//    }
 
-    }
-
-    public function add_map_block()
+    public function add_map_block($sidebar_name)
     {
         global $post;
 
         if (is_page() && $post->ID == $this->results_post_id) {
 
-            echo '<div id="sidebar">';
-            echo 'Practicing hooking into get_sidebar()';
-            echo '</div>';
+            ob_start();
+            require_once(
+                plugin_dir_path(__FILE__) . 
+                    'partials/sidebar-find-your-do-results.php'
+            );
+            echo ob_get_clean();
         }
+
+        return $sidebar_name;
     }
 
     public function fyd_load_page_template($page_template)
@@ -136,4 +141,5 @@ class Find_Your_Do_Public
 
         return $page_template;
     }
+
 }
