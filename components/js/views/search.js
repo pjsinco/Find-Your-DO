@@ -46,11 +46,11 @@ var SearchFormView = Backbone.View.extend({
         console.log('form submitted: ' + (this.isValid() ? 'valid' : 'invalid' ));
         if (this.isValid()) {
             var queryString = this.$el.serialize();    
-            var href = window.location.href;
+            var href = window.location.origin;
 
             window.location = [
                 href,
-                'find-your-do-results',
+                '/find-your-do-results',
                 '?',
                 queryString
             ].join('')
