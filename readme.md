@@ -6,3 +6,5 @@
 * StackEx: [How to publish a post with empty title and empty content?](http://wordpress.stackexchange.com/questions/28021/how-to-publish-a-post-with-empty-title-and-empty-content)
 * StackEx: [plugin_dir_path() vs. plugins_url()](http://wordpress.stackexchange.com/questions/94838/when-would-i-use-either-function-for-plugins)
 * Blog: [A Gentle Browserify Walkthrough](http://ponyfoo.com/articles/a-gentle-browserify-walkthrough)
+* Github: [backbone.paginator](https://github.com/backbone-paginator/backbone.paginator)
+> A pageable, drop-in replacement for Backbone.Collection called Backbone.PageableCollection.
