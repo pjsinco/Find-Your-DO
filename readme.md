@@ -8,3 +8,6 @@
 * Blog: [A Gentle Browserify Walkthrough](http://ponyfoo.com/articles/a-gentle-browserify-walkthrough)
 * Github: [backbone.paginator](https://github.com/backbone-paginator/backbone.paginator)
 > A pageable, drop-in replacement for Backbone.Collection called Backbone.PageableCollection.
+* Github: [browserify-handbook](https://github.com/substack/browserify-handbook#shimming)
+> This document covers how to use browserify to build modular applications.
+
