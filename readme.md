@@ -11,3 +11,7 @@
 * Github: [browserify-handbook](https://github.com/substack/browserify-handbook#shimming)
 > This document covers how to use browserify to build modular applications.
 
+
+#TODO
+* Top-level specialties should be at top of suggestion list
+* Explainer message when we expand beyond 25m
