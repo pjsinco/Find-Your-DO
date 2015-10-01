@@ -3037,7 +3037,7 @@ var SpecialtyView = Backbone.View.extend({
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             //limit: 7,
             remote: {
-                url: 'http://lookup.findyourdo.org/api/v1/physicians/search',
+                url: 'http://lookup.findyourdo.org/api/v1/physicians/names/search',
                 replace: function(url, uriEncodedQuery) {
                     // Grab the location from the hidden form fields
                     var loc = {
